@@ -1,14 +1,10 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+export default {
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-      },
-    },
-  },
-  plugins: [require("@tailwindcss/forms")],
-};
+  mode: 'jit',
+  // ...
+  plugins: [
+    // ...
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
+}

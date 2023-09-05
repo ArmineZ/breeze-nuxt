@@ -29,7 +29,7 @@ export const useUser = () => {
 
 export const useAuth = () => {
   const router = useRouter();
-
+  const config = useRuntimeConfig().public;
   const user = useUser();
   const isLoggedIn = computed(() => !!user.value);
 
@@ -85,6 +85,12 @@ export const useAuth = () => {
     });
   }
 
+  const redirectToGoogle = () => {
+    const googleAuthURL = new URL(config.GOOGLE_AUTH_URL, config.backendUrl);
+    window.location.href = googleAuthURL.toString();
+  };
+
+
   return {
     user,
     isLoggedIn,
@@ -95,6 +101,7 @@ export const useAuth = () => {
     forgotPassword,
     resetPassword,
     refresh,
+    redirectToGoogle,
   };
 };
 

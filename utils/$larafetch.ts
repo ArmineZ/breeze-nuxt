@@ -88,7 +88,7 @@ export async function $larafetch<T, R extends ResponseType = "json">(
   }
 }
 
-async function initCsrf() {
+export async function initCsrf() {
   const { backendUrl } = useRuntimeConfig().public;
 
   await $fetch("/sanctum/csrf-cookie", {
